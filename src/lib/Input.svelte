@@ -1,0 +1,1 @@
+<input type="text" class="bg-slate-200 rounded-md p-2" />
