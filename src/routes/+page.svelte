@@ -87,21 +87,21 @@
             </div>
             <div class="grid grid-cols-4 gap-4">
                 {#each movies as movie}
-                    <!-- <a href={`/movies/detail?imdbID=${movie.imdbID}`}> -->
+                    <a href={`/movies/detail?imdbID=${movie.imdbID}`}>
                         <div class="card w-60 bg-base-100 shadow-xl">
                             <figure><img src={movie.Poster} alt="Shoes" /></figure>
                             <div class="card-body">
                                 <h2 class="card-title">{movie.Title}</h2>
                                 <div class="card-actions justify-end">
-                                <!-- {#if favorites.find( element => element['imdbID'] == movie.imdbID)}
+                                {#if favorites.find( element => element['imdbID'] == movie.imdbID)}
                                     <button class="btn btn-secondary" on:click|preventDefault={() => removeFavorite(movie.imdbID)}>Favoritado</button>
                                 {:else}
                                     <button class="btn btn-primary" on:click|preventDefault={() => favorite(movie.imdbID)}>Favoritar</button>
-                                {/if} -->
+                                {/if}
                             </div>
                             </div>
                         </div>
-                    <!-- </a> -->
+                    </a>
                 {/each}
             </div>
         </div>
