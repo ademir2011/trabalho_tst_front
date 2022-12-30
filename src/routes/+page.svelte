@@ -81,10 +81,14 @@
     
     <div slot="main">
         <div class="mx-auto flex justify-center items-center flex-col space-y-5 mt-5">
+            {#if $NAME_STORE != undefined}
             <div class="flex space-x-4">
                 <input type="text" placeholder="Type here" class="input w-full max-w-xs" bind:value={$movieInfo.title} />
                 <button class="btn btn-primary" on:click={fetchApiMovies}>Buscar</button>
             </div>
+            {:else}
+                <h1>Por favor, para buscar filmes autentique-se!</h1>
+            {/if}
             <div class="grid grid-cols-4 gap-4">
                 {#each movies as movie}
                     <a href={`/movies/detail?imdbID=${movie.imdbID}`}>

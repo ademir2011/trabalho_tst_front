@@ -15,10 +15,8 @@ import { signUp } from "$lib/services/auth_service";
     
             console.log(response.body);
         } catch (e) {
-            console.log(e);
             return { success: false };
         }
-        // JWT_TOKEN.set({jwt:'JWT_TOOKKENN'});
     
         return { success: true };
     }

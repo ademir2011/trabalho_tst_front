@@ -1,8 +1,6 @@
 <script lang="ts">
-	import Button from "$lib/Button.svelte";
-	import Header from "$lib/Header.svelte";
-	import Input from "$lib/Input.svelte";
 	import Template from "$lib/Template.svelte";
+	import { onMount } from "svelte";
 
     /** @type {import('./$types').PageData} */
     export let data:any;
@@ -10,6 +8,16 @@
     export let form:any;
     
     export let loading: boolean = false;
+
+    onMount(() => {
+
+        if( form?.success){
+            alert('Cadastrado com sucesso!');
+        } else if (form?.invalid) {
+            alert('erro ao cadastrar!');
+        }
+
+    });
 
 </script>
 
@@ -35,16 +43,7 @@
             </div>
         </form>
     
-        {#if form?.success}
-        <!-- this message is ephemeral; it exists because the page was rendered in
-            response to a form submission. it will vanish if the user reloads -->
-        <p>Successfully logged in! Welcome back, </p>
-        {/if}
-        {#if form?.invalid}
-        <!-- this message is ephemeral; it exists because the page was rendered in
-            response to a form submission. it will vanish if the user reloads -->
-        <p>Successfully logged in! Welcome back, </p>
-        {/if}
+        
     </div>
 
 </Template>

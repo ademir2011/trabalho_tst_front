@@ -1,11 +1,7 @@
 <script lang="ts">
-	import Button from "$lib/Button.svelte";
-
-
-	import Header from "$lib/Header.svelte";
-	import Input from "$lib/Input.svelte";
 	import { NAME_STORE, EMAIL_STORE, TOKEN_STORE } from "$lib/stores/stores";
 	import Template from "$lib/Template.svelte";
+	import { onMount } from "svelte";
 
     let loading: boolean = false;
 
@@ -20,13 +16,20 @@
         TOKEN_STORE.set(form.user.token);
     }
 
+    onMount(() => {
+        if(form?.success){
+            save();
+            alert('autenticado!');
+        }
+    });
+
 </script>  
 
 <Template>
     
     <div slot="main">
 
-        <form method="POST" > 
+        <form method="POST"> 
             <div class="flex justify-center items-center w-full flex-col mt-4">
                 
                 <div class="flex w-1/5  space-y-4 justify-start flex-col border border-slate-200 p-4 bg-white rounded-md">
@@ -43,13 +46,9 @@
                 </div>
     
             </div>
-    
+
         </form>
-    
-        {#if form?.success}
-            {save()}
-        {/if}
-    
+
     </div >
     
 </Template>

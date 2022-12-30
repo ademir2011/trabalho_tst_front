@@ -22,3 +22,7 @@ TOKEN_STORE.subscribe((value) => {
     window.localStorage.setItem('token', value);
   }
 });
+
+export function logout(){
+  window.localStorage.clear();
+}
